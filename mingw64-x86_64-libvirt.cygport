@@ -1,0 +1,26 @@
+CROSS_HOST="x86_64-w64-mingw32"
+inherit cross
+
+NAME="mingw64-x86_64-libvirt"
+VERSION=3.4.0
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="Virtualization management library for Win64 toolchain"
+DESCRIPTION="Libvirt is collection of software that provides a convenient way
+to manage virtual machines and other virtualization functionality, such as
+storage and network interface management. These software pieces include an API
+library and a command line utility (virsh)."
+HOMEPAGE="http://libvirt.org/"
+SRC_URI="http://libvirt.org/sources/libvirt-${VERSION}.tar.xz"
+SRC_DIR="libvirt-${VERSION}"
+
+CYGCONF_ARGS="
+	--with-html-subdir=${NAME}/html
+	--without-libvirtd
+"
+
+src_install() {
+	cd ${B}
+	cyginstall libexec_SCRIPTS= man1_MANS= man7_MANS=
+	find ${D}${CROSS_DATADIR}/{doc,gtk-doc} -delete
+}
