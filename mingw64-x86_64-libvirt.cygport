@@ -2,7 +2,7 @@ CROSS_HOST="x86_64-w64-mingw32"
 inherit cross
 
 NAME="mingw64-x86_64-libvirt"
-VERSION=3.4.0
+VERSION=3.6.0
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="Virtualization management library for Win64 toolchain"
